@@ -118,6 +118,22 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     backgroundColor: "#a5d6a7", // lighter green or gray
   },
+  header: {
+    alignItems: "center",
+    marginBottom: 32,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "700",
+    fontFamily: "JetBrainsMono-Medium",
+    color: colors.primary,
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    textAlign: "center",
+  },
 });
 
 export default styles;

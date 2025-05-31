@@ -1,6 +1,8 @@
 // styles/signup.styles.js
-import { StyleSheet } from "react-native";
-import colors from "../../constants/colors";
+import { StyleSheet, Dimensions } from "react-native";
+import colors from "../constants/colors";
+
+const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -91,6 +93,17 @@ const styles = StyleSheet.create({
   link: {
     color: colors.primary,
     fontWeight: "600",
+  },
+  buttonDisabled: {
+    backgroundColor: "#a5d6a7", // lighter green or gray
+  },
+  topIllustration: {
+    alignItems: "center",
+    width: "100%",
+  },
+  illustrationImage: {
+    width: width * 0.75,
+    height: width * 0.75,
   },
 });
 

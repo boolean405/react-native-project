@@ -3,14 +3,14 @@ import { View, StyleSheet } from "react-native";
 import COLORS from "../assets/constants/colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-export default function SafeScreen({ children }) {
+const SafeScreen = ({ children }) => {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {children}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,3 +18,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
 });
+
+export default SafeScreen;
