@@ -12,6 +12,7 @@ export default function Index() {
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
       <Link href="/(auth)/signup">Sign Up</Link>
+      <Link href="/(auth)/forgotpassword">Forgot Password</Link>
       <Link href="/(auth)">Sign In</Link>
     </View>
   );

@@ -1,5 +1,5 @@
 // FOREST
-const COLORS = {
+const colors = {
   primary: "#4CAF50",
   textPrimary: "#2e5a2e",
   textSecondary: "#688f68",
@@ -15,7 +15,7 @@ const COLORS = {
 
 // RETRO
 /*
-const COLORS = {
+const colors = {
   primary: "#e17055",
   textPrimary: "#784e2d",
   textSecondary: "#a58e7c",
@@ -32,7 +32,7 @@ const COLORS = {
 
 // OCEAN
 /*
-const COLORS = {
+const colors = {
   primary: "#1976D2", 
   textPrimary: "#1a4971",
   textSecondary: "#6d93b8", 
@@ -49,7 +49,7 @@ const COLORS = {
 
 // BLOSSOM
 /*
-const COLORS = {
+const colors = {
   primary: "#EC407A", 
   textPrimary: "#7d2150", 
   textSecondary: "#b06a8f", 
@@ -64,4 +64,4 @@ const COLORS = {
 };
 */
 
-export default COLORS;
+export default colors;
