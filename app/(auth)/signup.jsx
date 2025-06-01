@@ -4,6 +4,7 @@ import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -16,6 +17,7 @@ import {
 import colors from "../../assets/constants/colors";
 import logo from "../../assets/images/logo.png";
 import styles from "../../assets/styles/signup.styles";
+import useAuthStore from "../../store/authStore";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -26,7 +28,10 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const { user, signup } = useAuthStore();
 
   const router = useRouter();
 
@@ -36,15 +41,27 @@ export default function Signup() {
     password.trim() !== "" &&
     confirmPassword.trim() !== "";
 
-  const handleSignup = () => {};
-
   useEffect(() => {
     if (confirmPassword && password !== confirmPassword) {
-      setError("Passwords do not match.");
+      setError(true);
+      setErrorMessage("Passwords do not match.");
     } else {
-      setError("");
+      setError(false);
+      setErrorMessage("");
     }
   }, [password, confirmPassword]);
+
+  const handleSignup = async () => {
+    setIsLoading(true);
+    const data = await signup(name, username, email, password);
+
+    if (!data.status) {
+      Alert.alert("Signup Failed", data.message);
+    } else {
+      Alert.alert("Signup Pending", data.message);
+    }
+    setIsLoading(false);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -164,9 +181,7 @@ export default function Signup() {
                     value={password}
                     secureTextEntry={!showPassword}
                     // When setting password, remove spaces:
-                    onChangeText={(text) =>
-                      setPassword(text.replace(/\s/g, ""))
-                    }
+                    onChangeText={(text) => setPassword(text.trim())}
                   />
 
                   {/* Right show password icon */}
@@ -221,7 +236,9 @@ export default function Signup() {
 
                 {/* Error message */}
                 {error ? (
-                  <Text style={{ color: "red", marginTop: 4 }}>{error}</Text>
+                  <Text style={{ color: "red", marginTop: 4 }}>
+                    {errorMessage}
+                  </Text>
                 ) : null}
               </View>
 
