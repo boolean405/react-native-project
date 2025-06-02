@@ -5,7 +5,7 @@ const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 const useAuthStore = create((set) => ({
   user: null,
-  token: null,
+  // token: "",
 
   signup: async (name, username, email, password) => {
     try {
@@ -22,7 +22,7 @@ const useAuthStore = create((set) => ({
         }),
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message);
+      if (!data.status) throw new Error(data.message);
 
       // await AsyncStorage.setItem("user", JSON.stringify(data));
       // await AsyncStorage.setItem("token", data.result.accessToken);
@@ -45,14 +45,70 @@ const useAuthStore = create((set) => ({
           email,
           password,
         }),
+        credentials: "include",
       });
-      const data = await response.json();
-      if (!response.status) throw new Error(data.message);
 
-      await AsyncStorage.setItem("user", JSON.stringify(data.result));
-      await AsyncStorage.setItem("token", data.result.accessToken);
+      const data = await response.json();
+      if (!data.status) throw new Error(data.message);
+      // console.log(data);
+
+      // const setCookieHeader = response.headers.get("set-cookie");
+      // if (setCookieHeader) {
+      //   // Use regex or split to extract the token
+      //   const match = setCookieHeader.match(/refreshToken=([^;]+)/);
+      //   const token = match ? match[1] : null;
+
+      //   console.log("Extracted token:", token);
+      // }
+
+      // await AsyncStorage.setItem("user", JSON.stringify(data.result));
+      // await AsyncStorage.setItem("token", data.result.accessToken);
 
       set({ user: data.result });
+      return data;
+    } catch (error) {
+      return { message: error.message };
+    }
+  },
+
+  checkAuth: async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/user`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      const data = await response.json();
+      if (!data.status) throw new Error(data.message);
+
+      set({ user: data.result });
+      return data;
+    } catch (error) {
+      return { message: error.message };
+    }
+  },
+
+  signout: async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/user/signout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+
+      const data = await response.json();
+      if (!data.status) throw new Error(data.message);
+
+      // await AsyncStorage.removeItem("user");
+      // await AsyncStorage.removeItem("token");
+      // console.log(data);
+      
+      set({ user: null });
       return data;
     } catch (error) {
       return { message: error.message };

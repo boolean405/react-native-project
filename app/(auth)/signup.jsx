@@ -73,7 +73,6 @@ export default function Signup() {
         keyboardShouldPersistTaps="handled"
       >
         {/* Container */}
-
         <View style={styles.container}>
           {/* Top illustration */}
           <View style={styles.topIllustration}>
@@ -87,7 +86,7 @@ export default function Signup() {
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>KKhay Account</Text>
-              <Text style={styles.subtitle}>Sign Up to open the World!</Text>
+              <Text style={styles.subtitle}>Sign Up to explore the World!</Text>
             </View>
 
             {/* Form */}

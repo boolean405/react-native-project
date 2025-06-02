@@ -1,17 +1,17 @@
 // styles/home.styles.js
 import { StyleSheet } from "react-native";
-import colors from "../../constants/colors";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: Colors.background,
   },
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.background,
+    backgroundColor: Colors.background,
   },
   listContainer: {
     padding: 16,
@@ -25,26 +25,26 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "JetBrainsMono-Medium",
     letterSpacing: 0.5,
-    color: colors.primary,
+    color: Colors.primary,
     marginBottom: 8,
   },
   headerSubtitle: {
     fontSize: 14,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
     textAlign: "center",
   },
   bookCard: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: Colors.cardBackground,
     borderRadius: 16,
     marginBottom: 20,
     padding: 16,
-    shadowColor: colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 3,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: Colors.border,
   },
   bookHeader: {
     flexDirection: "row",
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
   },
   bookImageContainer: {
     width: "100%",
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: "hidden",
     marginBottom: 12,
-    backgroundColor: colors.border,
+    backgroundColor: Colors.border,
   },
   bookImage: {
     width: "100%",
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   bookTitle: {
     fontSize: 18,
     fontWeight: "700",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
     marginBottom: 6,
   },
   ratingContainer: {
@@ -94,13 +94,13 @@ const styles = StyleSheet.create({
   },
   caption: {
     fontSize: 14,
-    color: colors.textDark,
+    color: Colors.textDark,
     marginBottom: 8,
     lineHeight: 20,
   },
   date: {
     fontSize: 12,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
   },
   emptyContainer: {
     alignItems: "center",
@@ -111,13 +111,13 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 18,
     fontWeight: "600",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
     marginTop: 16,
     marginBottom: 8,
   },
   emptySubtext: {
     fontSize: 14,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
     textAlign: "center",
   },
   footerLoader: {

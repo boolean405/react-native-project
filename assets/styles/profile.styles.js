@@ -1,11 +1,11 @@
 // styles/profile.styles.js
 import { StyleSheet } from "react-native";
-import colors from "../../constants/colors";
+import Colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: Colors.background,
     padding: 16,
     paddingBottom: 0,
   },
@@ -13,22 +13,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.background,
+    backgroundColor: Colors.background,
   },
   profileHeader: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.cardBackground,
+    backgroundColor: Colors.cardBackground,
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
-    shadowColor: colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 3,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: Colors.border,
   },
   profileImage: {
     width: 80,
@@ -42,34 +42,34 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 20,
     fontWeight: "700",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
     marginBottom: 4,
   },
   email: {
     fontSize: 14,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
     marginBottom: 4,
   },
   memberSince: {
     fontSize: 12,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
   },
   logoutButton: {
-    backgroundColor: colors.primary,
+    backgroundColor: Colors.primary,
     borderRadius: 12,
     padding: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 24,
-    shadowColor: colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
   },
   logoutText: {
-    color: colors.white,
+    color: Colors.white,
     fontWeight: "600",
     marginLeft: 8,
   },
@@ -82,28 +82,28 @@ const styles = StyleSheet.create({
   booksTitle: {
     fontSize: 18,
     fontWeight: "700",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
   },
   booksCount: {
     fontSize: 14,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
   },
   booksList: {
     paddingBottom: 20,
   },
   bookItem: {
     flexDirection: "row",
-    backgroundColor: colors.cardBackground,
+    backgroundColor: Colors.cardBackground,
     borderRadius: 12,
     padding: 12,
     marginBottom: 12,
-    shadowColor: colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: Colors.border,
   },
   bookImage: {
     width: 70,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   bookTitle: {
     fontSize: 16,
     fontWeight: "600",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
     marginBottom: 4,
   },
   ratingContainer: {
@@ -127,13 +127,13 @@ const styles = StyleSheet.create({
   },
   bookCaption: {
     fontSize: 14,
-    color: colors.textDark,
+    color: Colors.textDark,
     marginBottom: 4,
     flex: 1,
   },
   bookDate: {
     fontSize: 12,
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
   },
   deleteButton: {
     padding: 8,
@@ -148,24 +148,24 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 16,
     fontWeight: "600",
-    color: colors.textPrimary,
+    color: Colors.textPrimary,
     marginTop: 16,
     marginBottom: 20,
     textAlign: "center",
   },
   addButton: {
-    backgroundColor: colors.primary,
+    backgroundColor: Colors.primary,
     borderRadius: 12,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    shadowColor: colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
   },
   addButtonText: {
-    color: colors.white,
+    color: Colors.white,
     fontWeight: "600",
     fontSize: 14,
   },

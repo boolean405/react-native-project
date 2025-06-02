@@ -16,6 +16,8 @@ import {
 import styles from "../../assets/styles/signin";
 import logo from "../../assets/images/logo.png";
 import colors from "../../assets/constants/colors";
+import { Alert } from "react-native";
+import useAuthStore from "../../store/authStore";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -24,7 +26,20 @@ export default function Signin() {
   const [isLoading, setIsLoading] = useState(false);
   const isFormValid = email.trim() !== "" && password.trim() !== "";
 
-  const handleSignin = () => {};
+  const { user, signin } = useAuthStore();
+
+  const handleSignin = async () => {
+    setIsLoading(true);
+    const data = await signin(email, password);
+
+    if (!data.status) {
+      Alert.alert("Signin Failed", data.message);
+    } else {
+      Alert.alert("Signin Success", data.message);
+      // console.log(user);
+    }
+    setIsLoading(false);
+  };
   const handleForgotPassword = () => {};
 
   return (
@@ -48,8 +63,8 @@ export default function Signin() {
           <View style={styles.card}>
             {/* Header */}
             <View style={styles.header}>
-              <Text style={styles.title}>KKhay Account</Text>
-              <Text style={styles.subtitle}>Sign In to open the World!</Text>
+              <Text style={styles.title}>K Khay Account</Text>
+              <Text style={styles.subtitle}>Explore the World !</Text>
             </View>
 
             {/* Form */}
