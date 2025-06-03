@@ -1,6 +1,6 @@
 // styles/profile.styles.js
 import { StyleSheet } from "react-native";
-import Colors from "../../constants/colors";
+import Colors from "../constants/colors";
 
 const styles = StyleSheet.create({
   container: {
@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
   profileInfo: {
     flex: 1,
   },
-  username: {
+  name: {
     fontSize: 20,
     fontWeight: "700",
     color: Colors.textPrimary,
     marginBottom: 4,
   },
-  email: {
+  username: {
     fontSize: 14,
     color: Colors.textSecondary,
     marginBottom: 4,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.textSecondary,
   },
-  logoutButton: {
+  signoutButton: {
     backgroundColor: Colors.primary,
     borderRadius: 12,
     padding: 12,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-  logoutText: {
+  signoutText: {
     color: Colors.white,
     fontWeight: "600",
     marginLeft: 8,

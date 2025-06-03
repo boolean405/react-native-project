@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -17,7 +16,9 @@ import {
 import colors from "../../assets/constants/colors";
 import logo from "../../assets/images/logo.png";
 import styles from "../../assets/styles/signup.styles";
-import useAuthStore from "../../store/authStore";
+
+import { signup } from "../../services/authApi";
+import { useRouter } from "expo-router";
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -30,8 +31,6 @@ export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  const { user, signup } = useAuthStore();
 
   const router = useRouter();
 
@@ -53,14 +52,25 @@ export default function Signup() {
 
   const handleSignup = async () => {
     setIsLoading(true);
-    const data = await signup(name, username, email, password);
+    try {
+      const result = await signup({ name, username, email, password });
+      Alert.alert("Success", result.message || "Verification code email sent.");
 
-    if (!data.status) {
-      Alert.alert("Signup Failed", data.message);
-    } else {
-      Alert.alert("Signup Pending", data.message);
+      // Navigate to verify screen and pass email as query param
+      router.push({
+        pathname: "/(auth)/verify", // path to your verify screen file
+        params: {
+          name,
+          username,
+          email,
+          password,
+        }, // pass email here
+      });
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (

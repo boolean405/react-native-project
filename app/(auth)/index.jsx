@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "expo-router";
+import { useEffect, useState } from "react";
+import { Link, router } from "expo-router";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import {
@@ -11,13 +11,13 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from "react-native";
 
-import styles from "../../assets/styles/signin";
+import styles from "../../assets/styles/signin.styles";
 import logo from "../../assets/images/logo.png";
 import colors from "../../assets/constants/colors";
-import { Alert } from "react-native";
-import useAuthStore from "../../store/authStore";
+import { signin } from "../../services/authApi";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -26,19 +26,19 @@ export default function Signin() {
   const [isLoading, setIsLoading] = useState(false);
   const isFormValid = email.trim() !== "" && password.trim() !== "";
 
-  const { user, signin } = useAuthStore();
-
   const handleSignin = async () => {
     setIsLoading(true);
-    const data = await signin(email, password);
 
-    if (!data.status) {
-      Alert.alert("Signin Failed", data.message);
-    } else {
-      Alert.alert("Signin Success", data.message);
-      // console.log(user);
+    try {
+      const result = await signin({ email, password });
+      Alert.alert("Success", result.message || "Signin successful.");
+
+      router.replace("/(tabs)");
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
   const handleForgotPassword = () => {};
 
@@ -64,7 +64,7 @@ export default function Signin() {
             {/* Header */}
             <View style={styles.header}>
               <Text style={styles.title}>K Khay Account</Text>
-              <Text style={styles.subtitle}>Explore the World !</Text>
+              <Text style={styles.subtitle}>Explore the World!</Text>
             </View>
 
             {/* Form */}

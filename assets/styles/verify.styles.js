@@ -11,18 +11,6 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
   },
-  scrollViewStyle: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-  topIllustration: {
-    alignItems: "center",
-    width: "100%",
-  },
-  illustrationImage: {
-    width: width * 0.75,
-    height: width * 0.75,
-  },
   card: {
     backgroundColor: Colors.cardBackground,
     borderRadius: 16,
@@ -35,53 +23,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: Colors.border,
     marginTop: -24,
-  },
-  header: {
-    alignItems: "center",
-    marginBottom: 24,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "700",
-    color: Colors.textPrimary,
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: Colors.textSecondary,
-    textAlign: "center",
-  },
-  formContainer: {
-    marginBottom: 16,
-  },
-  inputGroup: {
-    marginBottom: 20,
-  },
-  label: {
-    fontSize: 14,
-    marginBottom: 8,
-    color: Colors.textPrimary,
-    fontWeight: "500",
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: Colors.inputBackground,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    paddingHorizontal: 12,
-  },
-  inputIcon: {
-    marginRight: 10,
-  },
-  input: {
-    flex: 1,
-    height: 48,
-    color: Colors.textDark,
-  },
-  eyeIcon: {
-    padding: 8,
   },
   button: {
     backgroundColor: Colors.primary,
@@ -101,16 +42,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
   },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 24,
-  },
-  footerText: {
-    color: Colors.textSecondary,
-    marginRight: 5,
-  },
   link: {
     color: Colors.primary,
     fontWeight: "600",
@@ -125,7 +56,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "700",
-    fontFamily: "JetBrainsMono-Medium",
+    fontFamily: "Roboto-Regular",
     color: Colors.primary,
     marginBottom: 8,
   },
@@ -133,6 +64,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.textSecondary,
     textAlign: "center",
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: 12,
+    width: 48,
+    height: 56,
+    textAlign: "center",
+    fontSize: 24,
+    backgroundColor: Colors.inputBackground,
+    color: Colors.textDark,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 24,
   },
 });
 
