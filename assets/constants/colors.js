@@ -49,6 +49,22 @@ const colors = {
 
 // BLOSSOM
 
+// const Colors = {
+//   primary: "#EC407A",
+//   textPrimary: "#7d2150",
+//   textSecondary: "#b06a8f",
+//   textDark: "#5a1836",
+//   placeholderText: "#767676",
+//   background: "#fce4ec",
+//   cardBackground: "#fff5f8",
+//   inputBackground: "#fef8fa",
+//   border: "#f8bbd0",
+//   white: "#ffffff",
+//   black: "#000000",
+//   buttonDisable: "#F8B6C8",
+// };
+
+// custom colors
 const Colors = {
   primary: "#EC407A",
   textPrimary: "#7d2150",
