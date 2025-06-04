@@ -2,13 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Alert, Text, TouchableOpacity } from "react-native";
 import styles from "../assets/styles/profile.styles";
-import { signout } from "../services/authApi"; // create this if not yet
 import { clearUserData } from "../store/authStore";
 
 export default function SignoutButton() {
   const handleSignOut = async () => {
     try {
-      await signout(); // calls backend to clear cookies/server token
       await clearUserData(); // clear local storage
       router.replace("/(auth)"); // navigate to login screen
     } catch (error) {

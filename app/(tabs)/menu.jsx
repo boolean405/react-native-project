@@ -10,9 +10,7 @@ export default function Menu() {
   const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const router = useRouter();
 
-  const { user } = useAuthStore();
 
   return (
     <View style={styles.container}>

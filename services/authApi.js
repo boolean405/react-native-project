@@ -101,17 +101,11 @@ export const resendCode = async ({ name, username, email, password }) => {
   }
 };
 
-export const signout = async () => {
-  try {
-    const response = await axios.post(
-      `${API_URL}/signout`,
-      {},
-      {
-        withCredentials: true, // ensures cookies are sent
-      }
-    );
-    return response.data;
-  } catch (err) {
-    throw new Error(err?.response?.data?.message || "Failed to sign out");
-  }
-};
+// export const signout = async () => {
+//   try {
+//     const response = await axios.post(`${API_URL}/api/user/signout`);
+//     return response.data;
+//   } catch (err) {
+//     throw new Error(err?.response?.data?.message || "Failed to sign out");
+//   }
+// };
